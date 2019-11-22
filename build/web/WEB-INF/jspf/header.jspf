@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lee Fashion Store</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <script src="js/jquery.min.js"></script>
+        <!-- Custom Theme files -->
+        <!--theme-style-->
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+        <!--//theme-style-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Lee Fashion Store" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!--fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+        <!--//fonts-->
+    </head>
+    <body> 
+        <!--header-->
+        <div class="header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-grid">
+                        <ul>
+                            <li><a href="articles.html" class="scroll">Articles</a></li>
+                            <li><a href="contact.html" class="scroll">Contact</a></li>
+                            <li><a href="privacy.html" class="scroll">Privacy</a></li>
+                            <li><a href="#" class="scroll">Terms</a></li>						
+                        </ul>
+                    </div>
+                    <div class="header-grid-right">
+                        <a href="#" class="sign-in">Sign In</a>
+                        <form>
+                            <input type="text" value="Username" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                            <input type="text" value="Password" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                            <input type="submit" value="Go" >
+                        </form>
+                        <label>|</label>
+                        <a href="signup.html" class="sign-up">Sign Up</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="header-bottom">			
+                    <div class="logo">
+                        <a href="index.html"><img src="images/logo.png" alt=" " style="height: 70px"></a>
+                    </div>
+                    <div class="ad-right">
+                        <img class="img-responsive" src="images/ad.png" alt=" " >
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>	
+                <div class="header-bottom-bottom">
+                    <div class="top-nav">
+                        <span class="menu"> </span>
+                        <ul>
+                            <li class="active" id="li1"><a id="a1" href="index.jsp">HOME </a></li>
+                            <li id="li2"><a id="a2" href="men.jsp" >MEN</a></li>
+                            <li id="li3"><a id="a3" href="#" >WOMEN</a></li>
+                            <li id="li4"><a id="a4" href="#" >KID</a></li>
+                            <li id="li5"><a id="a5" href="#" >COLLECTION</a></li>
+                            <li id="li6"><a id="a6" href="#" >LATEST PRODUCT</a></li>
+                        </ul>	                      
+                        <script>    
+                            $('#a1').click(() => {
+                                $('.active').removeClass('active');
+                                $('#li1').addClass('active');
+                            })
+                            $('#a2').click(() => {
+                                $('.active').removeClass('active');
+                                $('#li2').addClass('active');
+                            })
+                            $('#a3').click(() => {
+                                $('.active').removeClass('active');
+                                $('#li3').addClass('active');
+                            })
+                            $('#a4').click(() => {
+                                $('.active').removeClass('active');
+                                $('#li4').addClass('active');
+                            })
+                            $('#a5').click(() => {
+                                $('.active').removeClass('active');
+                                $('#li5').addClass('active');
+                            })
+                            $('#a6').click(() => {
+                                $('.active').removeClass('active');
+                                $('#li6').addClass('active');
+                            })
+                        </script>
+
+                        <div class="clearfix"></div>					
+                    </div>
+                    <div class="search">
+                        <form>
+                            <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+                            <input type="submit"  value="">
+                        </form>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
