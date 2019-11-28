@@ -8,7 +8,10 @@
         <jsp-property-group>
             <description>JSP configuration for the store front</description>
             <url-pattern>/index.jsp</url-pattern>
+            <url-pattern>/category.jsp</url-pattern>
+            <url-pattern>/product.jsp</url-pattern>
             <url-pattern>/men.jsp</url-pattern>
+
             <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>

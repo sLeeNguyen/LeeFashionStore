@@ -6,10 +6,10 @@
             <div class="class-footer">
                 <ul>
                     <li ><a href="index.jsp" class="scroll">HOME </a><label>|</label></li>
-                    <li><a href="men.jsp" class="scroll">MEN</a><label>|</label></li>
-                    <li><a href="#" class="scroll">WOMEN</a><label>|</label></li>
-                    <li><a href="#" class="scroll">KID</a><label>|</label></li>
-                    <li><a href="#" class="scroll">COLLECTION</a><label>|</label></li>
+                    <li><a href="category?cid1" class="scroll">MEN</a><label>|</label></li>
+                    <li><a href="category?cid2" class="scroll">WOMEN</a><label>|</label></li>
+                    <li><a href="category?cid3" class="scroll">KIDS</a><label>|</label></li>
+                    <li><a href="category?cid4" class="scroll">ACCESSORIES</a><label>|</label></li>
                     <li><a href="#" class="scroll">LATEST PRODUCT</a></li>
                 </ul>
                 <p class="footer-grid">&copy; 2019 By <a href="#" target="_blank">Lee Nguyen</a> </p>

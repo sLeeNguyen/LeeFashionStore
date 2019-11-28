@@ -31,10 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Product.findByProductId", query = "SELECT p FROM Product p WHERE p.productId = :productId")
     , @NamedQuery(name = "Product.findByName", query = "SELECT p FROM Product p WHERE p.name = :name")
     , @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")
-    , @NamedQuery(name = "Product.findByDescription", query = "SELECT p FROM Product p WHERE p.description = :description")
     , @NamedQuery(name = "Product.findByDescriptionDetail", query = "SELECT p FROM Product p WHERE p.descriptionDetail = :descriptionDetail")
     , @NamedQuery(name = "Product.findByImage", query = "SELECT p FROM Product p WHERE p.image = :image")
-    , @NamedQuery(name = "Product.findByThumbImage", query = "SELECT p FROM Product p WHERE p.thumbImage = :thumbImage")
     , @NamedQuery(name = "Product.findByLastUpdate", query = "SELECT p FROM Product p WHERE p.lastUpdate = :lastUpdate")})
 public class Product implements Serializable {
 
@@ -51,18 +49,12 @@ public class Product implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "price")
     private Float price;
-    @Size(max = 255)
-    @Column(name = "description")
-    private String description;
     @Size(max = 1000)
     @Column(name = "description_detail")
     private String descriptionDetail;
     @Size(max = 255)
     @Column(name = "image")
     private String image;
-    @Size(max = 255)
-    @Column(name = "thumb_image")
-    private String thumbImage;
     @Size(max = 10)
     @Column(name = "last_update")
     private String lastUpdate;
@@ -104,14 +96,6 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getDescriptionDetail() {
         return descriptionDetail;
     }
@@ -126,14 +110,6 @@ public class Product implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getThumbImage() {
-        return thumbImage;
-    }
-
-    public void setThumbImage(String thumbImage) {
-        this.thumbImage = thumbImage;
     }
 
     public String getLastUpdate() {

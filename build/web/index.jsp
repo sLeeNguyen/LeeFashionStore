@@ -5,23 +5,19 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var='view' value='/index' scope='session' />
 
 <div class="content">
     <div class="container">
         <div class="women-in">
             <div class="col-md-9 col-d">
                 <div class="banner">
-                    <div class="banner-matter">
-                        <label>Collection</label>
-                        <h2>Summmer</h2>
-                        <p>Helping you look cool</p>
-
+                    <video class="banner-video" loop autoplay>
+                        <source src="images/bannervideo.mp4" type="video/mp4"/>
+                    </video>
+                    <div class="sub-banner-logo">
+                        <a href="index.jsp"><img src="images/logo.png" alt=" "></a>
                     </div>
-                    <div class="you">
-                        <span>40<label>%</label></span>
-                        <small>off</small>
-                    </div>			
-                    <p  class="para-in">Some text regarding the featured product.</p>
                 </div>
                 <!---->
                 <div class="in-line">
@@ -32,8 +28,10 @@
                     <div class="lady-in">
                         <c:forEach var="product" items="${newProducts}">
                             <div class="col-md-4 you-para">
-                                <a href="#"><img class="img-responsive pic-in" style="height: 200px;"
-                                                           src="${initParam.imgProductPath}${product.getImage()}" alt=" "></a>
+                                <a href="<c:url value='product?${product.productId}'/>">
+                                       <img class="img-responsive pic-in" style="height: 200px;"
+                                            src="${initParam.imgProductPath}${product.getImage()}" alt=" ">
+                                </a>
                                 <div class="you-in">
                                     <span>15<label>%</label></span>
                                     <small>off</small>
@@ -95,20 +93,21 @@
             </div>
             <ul id="flexiselDemo1">
                 <c:forEach var="category" items="${categories}">
-                    <li><a href="#"><img class="img-responsive women" 
-                                         src="${initParam.imgCategoryPath}${category.getImage()}" alt=""></a>
+                    <li><a href="<c:url value='category?${category.categoryId}'/>">
+                            <img class="img-responsive women" src="${initParam.imgCategoryPath}${category.getImage()}" alt="">
+                        </a>
                     <div class="hide-in">
                         <p>${category.getName()}</p>
-                        <span>$179.00  |  <a href="#">Buy Now </a></span>
+                        <span>$179.00  |  <a href="#">View</a></span>
                     </div></li>
                 </c:forEach>
                 
             </ul>
             <script type="text/javascript">
-    $(window).load(function() {
-            $("#flexiselDemo1").flexisel({
-                    visibleItems: 4,
-                    animationSpeed: 1500,
+                $(window).load(function() {
+                    $("#flexiselDemo1").flexisel({
+                        visibleItems: 4,
+                        animationSpeed: 1500,
                         autoPlay: true,
                         autoPlaySpeed: 3000,
                         pauseOnHover: true,
@@ -128,7 +127,6 @@
                             }
                         }
                     });
-
                 });
             </script>
             <script type="text/javascript" src="js/jquery.flexisel.js"></script>

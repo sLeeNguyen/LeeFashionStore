@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/web/index.jsp</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/web/product.jsp</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/web/category.jsp</file>
             <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/controller/ControllerServlet.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/session_bean/ProductDetailSessionBean.java</file>
             <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/web/WEB-INF/web.xml</file>
         </group>
     </open-files>

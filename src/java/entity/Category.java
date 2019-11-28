@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -81,7 +82,7 @@ public class Category implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
-
+    
     @XmlTransient
     public Collection<Product> getProductCollection() {
         return productCollection;
@@ -90,7 +91,11 @@ public class Category implements Serializable {
     public void setProductCollection(Collection<Product> productCollection) {
         this.productCollection = productCollection;
     }
-
+    
+//    public List<Product> getProductById(String id) {
+//        
+//    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

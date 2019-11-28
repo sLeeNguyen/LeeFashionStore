@@ -6,7 +6,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,9 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Productdetail.findByImage2", query = "SELECT p FROM Productdetail p WHERE p.image2 = :image2")
     , @NamedQuery(name = "Productdetail.findByImage3", query = "SELECT p FROM Productdetail p WHERE p.image3 = :image3")
     , @NamedQuery(name = "Productdetail.findByImage4", query = "SELECT p FROM Productdetail p WHERE p.image4 = :image4")
-    , @NamedQuery(name = "Productdetail.findByImage5", query = "SELECT p FROM Productdetail p WHERE p.image5 = :image5")
-    , @NamedQuery(name = "Productdetail.findByAccessories", query = "SELECT p FROM Productdetail p WHERE p.accessories = :accessories")
-    , @NamedQuery(name = "Productdetail.findByGuaranty", query = "SELECT p FROM Productdetail p WHERE p.guaranty = :guaranty")})
+    , @NamedQuery(name = "Productdetail.findByImage5", query = "SELECT p FROM Productdetail p WHERE p.image5 = :image5")})
 public class Productdetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -66,12 +66,6 @@ public class Productdetail implements Serializable {
     @Size(max = 255)
     @Column(name = "image5")
     private String image5;
-    @Size(max = 2000)
-    @Column(name = "accessories")
-    private String accessories;
-    @Size(max = 2000)
-    @Column(name = "guaranty")
-    private String guaranty;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productdetailproductid")
     private Collection<Product> productCollection;
 
@@ -138,22 +132,6 @@ public class Productdetail implements Serializable {
         this.image5 = image5;
     }
 
-    public String getAccessories() {
-        return accessories;
-    }
-
-    public void setAccessories(String accessories) {
-        this.accessories = accessories;
-    }
-
-    public String getGuaranty() {
-        return guaranty;
-    }
-
-    public void setGuaranty(String guaranty) {
-        this.guaranty = guaranty;
-    }
-
     @XmlTransient
     public Collection<Product> getProductCollection() {
         return productCollection;
@@ -162,7 +140,17 @@ public class Productdetail implements Serializable {
     public void setProductCollection(Collection<Product> productCollection) {
         this.productCollection = productCollection;
     }
-
+    
+    public List<String> getAllImages() {
+        List<String> list = new ArrayList<String>();
+        if (image1 != null) list.add(image1);        
+        if (image2 != null) list.add(image2);
+        if (image3 != null) list.add(image3);
+        if (image4 != null) list.add(image4);
+        if (image5 != null) list.add(image5);
+        return list;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

@@ -32,6 +32,7 @@ public abstract class AbstractSessionBean<T> {
     }
     
     public T find(Object id) {
+        System.out.println("get category " + id);
         return getEntityManager().find(entityClass, id);
     }
     
