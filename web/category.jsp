@@ -4,7 +4,7 @@
     Author     : Lee Nguyen
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="entity.Category"%>
 <%@page import="java.util.List"%>
 <%@page import="entity.Product"%>
@@ -40,7 +40,8 @@
                             </div>
                             <div class="showInfo">
                                 <p><%=p.getName()%></p>
-                                <span>$<%=p.getPrice()%>  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
+                                <span>$<%=p.getPrice()%>  | <label class="cat-in"> </label> 
+                                    <a href="addToCart?<%=p.getProductId()%>">Add to Cart </a></span>
                             </div>
                             
                         </div>
@@ -55,7 +56,8 @@
                                 <small>off</small>
                             </div>
                             <p><%=p.getName()%></p>
-                            <span>$<%=p.getPrice()%>  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
+                            <span>$<%=p.getPrice()%>  | <label class="cat-in"> </label>
+                                <a href="addToCart?<%=p.getProductId()%>">Add to Cart </a></span>
                         </div>
                     </c:if>
                     <%count++;%>

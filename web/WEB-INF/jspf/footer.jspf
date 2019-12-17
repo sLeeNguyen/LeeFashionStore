@@ -21,5 +21,13 @@
         </div>
     </div>
 </div>
+<!-- jQuery -->
+    <!--<script src="admin/manage/vendors/jquery/dist/jquery.min.js"></script>-->
+    <!-- Bootstrap -->
+   <script src="admin/manage/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- validator -->
+    <script src="admin/manage/vendors/validator/validator.js"></script>
+    <script src="admin/manage/build/js/custom.min.js"></script>
+
 </body>
 </html>

@@ -4,7 +4,6 @@
     Author     : Lee Nguyen
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var='view' value='/index' scope='session' />
 
 <div class="content">
@@ -98,7 +97,7 @@
                         </a>
                     <div class="hide-in">
                         <p>${category.getName()}</p>
-                        <span>$179.00  |  <a href="#">View</a></span>
+                        <span>$69.00  |  <a href="category?${category.categoryId}">View</a></span>
                     </div></li>
                 </c:forEach>
                 
@@ -109,7 +108,7 @@
                         visibleItems: 4,
                         animationSpeed: 1500,
                         autoPlay: true,
-                        autoPlaySpeed: 3000,
+                        autoPlaySpeed: 2000,
                         pauseOnHover: true,
                         enableResponsiveBreakpoints: true,
                         responsiveBreakpoints: {

@@ -1,0 +1,20 @@
+SMAP
+products_jsp.java
+JSP
+*S JSP
+*F
++ 0 products.jsp
+admin/manage/page/products.jsp
+*L
+5,28:46
+33,2:75
+34,130:77
+164:207,3
+165,2:210
+167:212,3
+168:215
+169,4:216,3
+173,5:228
+178:233,3
+179,56:236
+*E

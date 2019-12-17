@@ -85,7 +85,7 @@
                                     </li>
                                 </ul>
                                 <div class="form-in">
-                                    <a href="#">Add To Cart</a>
+                                    <a href="addToCart?<%=selectedProduct.getProductId()%>">Add To Cart</a>
                                 </div>
                                 <span class="span_right"><a href="#">login to save in wishlist </a></span>
                                 <div class="clearfix"></div>

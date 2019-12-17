@@ -31,7 +31,7 @@ h2,h3,h4,h5,h6,p{
 }
 .header-grid ul li{
     display:inline-block;
-    padding:1.4em 1em;
+    padding:1.2em 1em;
 }
 .header-grid ul li a{
     color:#fff;
@@ -40,6 +40,19 @@ h2,h3,h4,h5,h6,p{
 }
 .header-grid ul li a:hover{
     color:#bc3726;
+}
+.scroll i {
+    font-size: 22px;
+    margin-right: 10px;
+}
+.scroll.cart i {
+    margin-right: 0px;
+}
+.scroll.cart label {
+    font-size: 12px;
+    margin: 0px;
+    font-weight: normal;
+    margin-left: -2px;
 }
 .search{
     float:right;
@@ -70,7 +83,27 @@ a.sign-in{
     padding: 4px 0;
     font-weight: 600;
 }
-.header-grid-right input[type="text"],.header-grid-right input[type="submit"]{
+a.hello{
+    color: #fff;
+    font-size: 1.1em;
+    text-decoration: none;
+    float: left;
+    width: 82%;
+    padding: 0px 13px 0 0;
+    font-weight: 600;
+    text-align: right;
+}
+.hello .profile{
+    color: #000;
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background: #fff;
+    border-radius: 50%;
+} 
+.header-grid-right input[type="text"],
+.header-grid-right input[type="submit"],
+.header-grid-right input[type="password"] {
     outline: none;
     border: none;
     background: #4a4a4a;
@@ -104,6 +137,19 @@ a.sign-up{
     padding: 4px 0px 4px 13px;
 }
 a.sign-up:hover{
+    color:#FD1E01;
+}
+a.sign-out{
+    font-size: 1.1em;
+    text-decoration: none;
+    float: left;
+    padding: 4px 0;
+    font-weight: 600;
+    color: #ea6a53;
+    width: 16%;
+    padding: 4px 0px 4px 13px;
+}
+a.sign-out:hover{
     color:#FD1E01;
 }
 /*----*/
@@ -1321,7 +1367,21 @@ h2.resp-accordion:hover{
     display: block;
     text-transform: uppercase;
 }
+.register-top-grid span label {
+    color: red;
+    padding-bottom: 0.2em;
+    display: block;
+    text-transform: none;
+}
 .register-top-grid input[type="text"] {
+    border: 1px solid #EEE;
+    outline-color:#bc3726;
+    width: 70%;
+    font-size: 1em;
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
+.register-top-grid input[type="password"] {
     border: 1px solid #EEE;
     outline-color:#bc3726;
     width: 70%;
@@ -1399,6 +1459,11 @@ h2.resp-accordion:hover{
 }
 .register {
     padding: 4em 0;
+}
+
+.submit {
+    width: 70%;
+    text-align: center;
 }
 /*--privacy--*/
 .privacy-top h3{
