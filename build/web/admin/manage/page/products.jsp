@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="entity.Product"%>
+<%@page import="model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
         <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="../build/css/custom.min.css" rel="stylesheet">
-
+        <c:set var='view' value='/products' scope='session' />
         <%
             List<Product> listProducts = (List<Product>) session.getAttribute("listProducts");
         %>
@@ -193,7 +193,7 @@
                                                             <td>
                                                                 <a class="link" href="/LeeFashionStore/product?<%=p.getProductId()%>" target="_blank">View Detail</a>
                                                                 <a class="link" href="#">Edit</a>
-                                                                <a class="link" href="#">Delete</a>
+                                                                <a class="link" href="/LeeFashionStore/deleteProduct?<%=p.getProductId()%>">Delete</a>
                                                             </td>
                                                         </tr>
                                                         <% } %>
@@ -237,6 +237,8 @@
             </footer>
 
     </body>
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -250,8 +252,7 @@
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
 
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->

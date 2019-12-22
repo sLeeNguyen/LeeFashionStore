@@ -51,14 +51,14 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="city">City <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                              <input type="text" name="city" class="optional form-control">
+                              <input type="text" name="cityRegion" class="optional form-control">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="number">Credit Card Number<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                              <input type="number" id="number" name="number" required="required" class="form-control">
+                              <input type="number" id="number" name="creditcard" required="required" class="form-control">
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -95,7 +95,6 @@
             </ul>
 
             <div class="clearfix"></div>
-            <a class="order" href="#">Place Order</a>
             <div class="total-item">
                 <h3>OPTIONS</h3>
                 <h4>COUPONS</h4>

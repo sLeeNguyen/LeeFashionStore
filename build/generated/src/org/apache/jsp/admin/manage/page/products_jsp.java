@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.List;
-import entity.Product;
+import model.Product;
 
 public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -13,10 +13,20 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_scope_nobody;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_set_var_value_scope_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_set_var_value_scope_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -51,7 +61,6 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"en\">\n");
-      out.write("\n");
       out.write("    <head>\n");
       out.write("        <meta charset=\"utf-8\" />\n");
       out.write("        <link rel=\"apple-touch-icon\" sizes=\"76x76\" href=\"../assets/img/apple-icon.png\">\n");
@@ -70,6 +79,23 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- CSS Just for demo purpose, don't include it in your project -->\n");
       out.write("        <link href=\"../assets/demo/demo.css\" rel=\"stylesheet\" />\n");
       out.write("        \n");
+      out.write("        <link href=\"cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css\">\n");
+      out.write("        <!-- NProgress -->\n");
+      out.write("        <link href=\"../vendors/nprogress/nprogress.css\" rel=\"stylesheet\">\n");
+      out.write("        <!-- iCheck -->\n");
+      out.write("        <link href=\"../vendors/iCheck/skins/flat/green.css\" rel=\"stylesheet\">\n");
+      out.write("        <!-- Datatables -->\n");
+      out.write("        <link href=\"../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <link href=\"../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <link href=\"../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <link href=\"../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <link href=\"../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <!-- Custom Theme Style -->\n");
+      out.write("        <link href=\"../build/css/custom.min.css\" rel=\"stylesheet\">\n");
+      out.write("        ");
+      if (_jspx_meth_c_set_0(_jspx_page_context))
+        return;
+      out.write("\n");
       out.write("        ");
 
             List<Product> listProducts = (List<Product>) session.getAttribute("listProducts");
@@ -187,97 +213,110 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <!-- <div class=\"panel-header panel-header-sm\"></div> -->\n");
       out.write("                <div class=\"content\">\n");
       out.write("                    <div class=\"row\">\n");
-      out.write("                        <div class=\"col-md-12\">\n");
-      out.write("                            <div class=\"card\">\n");
-      out.write("                                <div class=\"card-header\">\n");
-      out.write("                                    <h4 class=\"card-title\">Products</h4>\n");
-      out.write("                                </div>\n");
-      out.write("                                <div class=\"card-body\">\n");
-      out.write("                                    <div class=\"table-responsive\">\n");
-      out.write("                                        <table class=\"table\">\n");
-      out.write("                                            <thead class=\" text-primary\">\n");
-      out.write("                                            <th>Image</th>\n");
-      out.write("                                            <th>Id</th>\n");
-      out.write("                                            <th>Name</th>\n");
-      out.write("                                            <th>Last Update</th>\n");
-      out.write("                                            <th>Price</th>\n");
-      out.write("                                            <th>More</th>\n");
-      out.write("                                            </thead>\n");
-      out.write("                                            <tbody>\n");
-      out.write("                                                ");
- for (Product p: listProducts) { 
+      out.write("                        <div class=\"col-md-12 col-sm-12 \">\n");
+      out.write("                            <div class=\"x_panel\">\n");
+      out.write("                                <div class=\"x_title\">\n");
+      out.write("                                    <h2>Manage<small>Products</small></h2>\n");
       out.write("\n");
-      out.write("                                                <tr>\n");
-      out.write("                                                    <td class=\"thumb-img\">\n");
-      out.write("                                                        <img src=\"");
-      out.print("../../../imageshow/"+p.getImage());
-      out.write("\" alt=\"\"/>\n");
-      out.write("                                                    </td>\n");
-      out.write("                                                    <td class=\"product-id\">");
+      out.write("                                    <div class=\"clearfix\"></div>\n");
+      out.write("                                </div>\n");
+      out.write("                                <div class=\"x_content\">\n");
+      out.write("                                    <div class=\"row\">\n");
+      out.write("                                        <div class=\"col-sm-12\">\n");
+      out.write("                                            <div class=\"card-box table-responsive\">\n");
+      out.write("                                                <p class=\"text-muted font-13 m-b-30\">\n");
+      out.write("                                                    This example shows FixedHeader being styling by the Bootstrap CSS framework.\n");
+      out.write("                                                </p>\n");
+      out.write("                                                <table id=\"datatable-fixed-header\" class=\"table table-striped table-bordered\" style=\"width:100%\">\n");
+      out.write("                                                    <thead>\n");
+      out.write("                                                        <tr>\n");
+      out.write("                                                            <th>Image</th>\n");
+      out.write("                                                            <th>Product ID</th>\n");
+      out.write("                                                            <th>Name</th>\n");
+      out.write("                                                            <th>Price</th>\n");
+      out.write("                                                            <th>Last Update</th>\n");
+      out.write("                                                            <th>More</th>\n");
+      out.write("                                                        </tr>\n");
+      out.write("                                                    </thead>\n");
+      out.write("                                                    <tbody style=\"font-size: 14px\">\n");
+      out.write("                                                        ");
+ for (Product p: listProducts) {
+      out.write("\n");
+      out.write("                                                        <tr>                                                           \n");
+      out.write("                                                            <td class=\"thumb-img\"><img src=\"../../imageshow/");
+      out.print(p.getImage());
+      out.write("\" alt=\"\"</td>\n");
+      out.write("                                                            <td class=\"product-id\">");
       out.print(p.getProductId());
       out.write("</td>\n");
-      out.write("                                                    <td class=\"product-name\">");
+      out.write("                                                            <td class=\"product-name\">");
       out.print(p.getName());
       out.write("</td>\n");
-      out.write("                                                    <td class=\"product-date\">");
-      out.print(p.getLastUpdate());
-      out.write("</td>\n");
-      out.write("                                                    <td class=\"product-price\">");
+      out.write("                                                            <td class=\"product-price\">");
       out.print(p.getPrice());
       out.write("</td>\n");
-      out.write("                                                    <td>\n");
-      out.write("                                                        <a class=\"link\" href=\"\" title=\"View Detail\">View Detail</a>\n");
-      out.write("                                                        <a class=\"link\" href=\"#\" title=\"Delete\">Delete</a>\n");
-      out.write("                                                    </td>\n");
-      out.write("                                                </tr>\n");
-      out.write("                                                ");
+      out.write("                                                            <td class=\"product-date\">");
+      out.print(p.getLastUpdate());
+      out.write("</td>\n");
+      out.write("                                                            <td>\n");
+      out.write("                                                                <a class=\"link\" href=\"/LeeFashionStore/product?");
+      out.print(p.getProductId());
+      out.write("\" target=\"_blank\">View Detail</a>\n");
+      out.write("                                                                <a class=\"link\" href=\"#\">Edit</a>\n");
+      out.write("                                                                <a class=\"link\" href=\"/LeeFashionStore/deleteProduct?");
+      out.print(p.getProductId());
+      out.write("\">Delete</a>\n");
+      out.write("                                                            </td>\n");
+      out.write("                                                        </tr>\n");
+      out.write("                                                        ");
  } 
       out.write("\n");
-      out.write("                                            </tbody>\n");
-      out.write("                                        </table>\n");
+      out.write("                                                    </tbody>\n");
+      out.write("                                                </table>\n");
+      out.write("                                            </div>\n");
+      out.write("                                        </div>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
-      out.write("                <footer class=\"footer footer-black  footer-white \">\n");
-      out.write("                    <div class=\"container-fluid\">\n");
-      out.write("                        <div class=\"row\">\n");
-      out.write("                            <nav class=\"footer-nav\">\n");
-      out.write("                                <ul>\n");
-      out.write("                                    <li>\n");
-      out.write("                                        <a href=\"#\" target=\"_blank\">Lee</a>\n");
-      out.write("                                    </li>\n");
-      out.write("                                    <li>\n");
-      out.write("                                        <a href=\"#\" target=\"_blank\">Blog</a>\n");
-      out.write("                                    </li>\n");
-      out.write("                                    <li>\n");
-      out.write("                                        <a href=\"#\" target=\"_blank\">Licenses</a>\n");
-      out.write("                                    </li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </nav>\n");
-      out.write("                            <div class=\"credits ml-auto\">\n");
-      out.write("                                <span class=\"copyright\">\n");
-      out.write("                                    ©\n");
-      out.write("                                    <script>\n");
-      out.write("                                        document.write(new Date().getFullYear())\n");
-      out.write("                                    </script>, made with <i class=\"fa fa-heart heart\"></i> by Lee Nguyen\n");
-      out.write("                                </span>\n");
-      out.write("                            </div>\n");
+      out.write("            </div>\n");
+      out.write("            <footer class=\"footer footer-black  footer-white \">\n");
+      out.write("                <div class=\"container-fluid\">\n");
+      out.write("                    <div class=\"row\">\n");
+      out.write("                        <nav class=\"footer-nav\">\n");
+      out.write("                            <ul>\n");
+      out.write("                                <li>\n");
+      out.write("                                    <a href=\"#\" target=\"_blank\">Lee</a>\n");
+      out.write("                                </li>\n");
+      out.write("                                <li>\n");
+      out.write("                                    <a href=\"#\" target=\"_blank\">Blog</a>\n");
+      out.write("                                </li>\n");
+      out.write("                                <li>\n");
+      out.write("                                    <a href=\"#\" target=\"_blank\">Licenses</a>\n");
+      out.write("                                </li>\n");
+      out.write("                            </ul>\n");
+      out.write("                        </nav>\n");
+      out.write("                        <div class=\"credits ml-auto\">\n");
+      out.write("                            <span class=\"copyright\">\n");
+      out.write("                                ©\n");
+      out.write("                                <script>\n");
+      out.write("                                    document.write(new Date().getFullYear())\n");
+      out.write("                                </script>, made with <i class=\"fa fa-heart heart\"></i> by Lee Nguyen\n");
+      out.write("                            </span>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
-      out.write("                </footer>\n");
-      out.write("            </div>\n");
-      out.write("        </div>    \n");
+      out.write("                </div>\n");
+      out.write("            </footer>\n");
+      out.write("\n");
       out.write("    </body>\n");
+      out.write("    <!-- jQuery -->\n");
+      out.write("    <script src=\"../vendors/jquery/dist/jquery.min.js\"></script>\n");
       out.write("    <!--   Core JS Files   -->\n");
-      out.write("    <script src=\"../assets/js/core/jquery.min.js\"></script>\n");
       out.write("    <script src=\"../assets/js/core/popper.min.js\"></script>\n");
       out.write("    <script src=\"../assets/js/core/bootstrap.min.js\"></script>\n");
       out.write("    <script src=\"../assets/js/plugins/perfect-scrollbar.jquery.min.js\"></script>\n");
-      out.write("    <!--  Google Maps Plugin    -->\n");
-      out.write("    <script src=\"https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE\"></script>\n");
       out.write("    <!-- Chart JS -->\n");
       out.write("    <script src=\"../assets/js/plugins/chartjs.min.js\"></script>\n");
       out.write("    <!--  Notifications Plugin    -->\n");
@@ -286,7 +325,37 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"../assets/js/paper-dashboard.min.js?v=2.0.0\" type=\"text/javascript\"></script>\n");
       out.write("    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->\n");
       out.write("    <script src=\"../assets/demo/demo.js\"></script>\n");
-      out.write("</body>\n");
+      out.write("\n");
+      out.write("    \n");
+      out.write("    <!-- Bootstrap -->\n");
+      out.write("    <script src=\"../vendors/bootstrap/dist/js/bootstrap.bundle.min.js\"></script>\n");
+      out.write("    <!-- FastClick -->\n");
+      out.write("    <script src=\"../vendors/fastclick/lib/fastclick.js\"></script>\n");
+      out.write("    <!-- NProgress -->\n");
+      out.write("    <script src=\"../vendors/nprogress/nprogress.js\"></script>\n");
+      out.write("    <!-- iCheck -->\n");
+      out.write("    <script src=\"../vendors/iCheck/icheck.min.js\"></script>\n");
+      out.write("    <!-- Datatables -->\n");
+      out.write("    <script src=\"../vendors/datatables.net/js/jquery.dataTables.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-buttons/js/dataTables.buttons.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-buttons/js/buttons.flash.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-buttons/js/buttons.html5.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-buttons/js/buttons.print.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-responsive/js/dataTables.responsive.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js\"></script>\n");
+      out.write("    <script src=\"../vendors/datatables.net-scroller/js/dataTables.scroller.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/jszip/dist/jszip.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/pdfmake/build/pdfmake.min.js\"></script>\n");
+      out.write("    <script src=\"../vendors/pdfmake/build/vfs_fonts.js\"></script>\n");
+      out.write("\n");
+      out.write("    <!-- Custom Theme Scripts -->\n");
+      out.write("    <script src=\"../build/js/custom.min.js\"></script>\n");
+      out.write("\n");
+      out.write("    </body>\n");
       out.write("\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -300,5 +369,25 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_set_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_scope_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_0.setParent(null);
+    _jspx_th_c_set_0.setVar("view");
+    _jspx_th_c_set_0.setValue(new String("/products"));
+    _jspx_th_c_set_0.setScope("session");
+    int _jspx_eval_c_set_0 = _jspx_th_c_set_0.doStartTag();
+    if (_jspx_th_c_set_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_0);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_0);
+    return false;
   }
 }

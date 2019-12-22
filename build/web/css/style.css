@@ -1353,6 +1353,8 @@ h2.resp-accordion:hover{
 }
 /*----*/
 /*--register--*/
+.register-top-grid.sign-up {
+}
 .register-top-grid h3 {
     color:#bc3726;
     font-size: 1.1em;
@@ -1373,21 +1375,23 @@ h2.resp-accordion:hover{
     display: block;
     text-transform: none;
 }
-.register-top-grid input[type="text"] {
+.register-top-grid .mation input[type="text"] {
     border: 1px solid #EEE;
     outline-color:#bc3726;
     width: 70%;
     font-size: 1em;
     padding: 0.5em;
     margin: 0.5em 0;
+    border: 1px solid burlywood;
 }
-.register-top-grid input[type="password"] {
+.register-top-grid .mation input[type="password"] {
     border: 1px solid #EEE;
     outline-color:#bc3726;
     width: 70%;
     font-size: 1em;
     padding: 0.5em;
     margin: 0.5em 0;
+    border: 1px solid burlywood;
 }
 .checkbox {
     margin-bottom: 4px;

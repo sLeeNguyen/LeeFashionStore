@@ -1,6 +1,6 @@
 package cart;
 
-import entity.Product;
+import model.Product;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,21 +78,21 @@ public class ShoppingCart {
     }
     
     public synchronized String getSubtotalCurrencyFormat() {
-        double amount = 0;
+        float amount = 0;
         for (ShoppingCartItem scItem: listItems) {
             Product product = (Product) scItem.getProduct();
-            amount += (scItem.getQuantity()*product.getPrice().doubleValue());
+            amount += (scItem.getQuantity()*product.getPrice());
         }
         
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         return currencyFormat.format(amount);
     }
     
-    public synchronized double getSubtotal() {
-        double amount = 0;
+    public synchronized float getSubtotal() {
+        float amount = 0;
         for (ShoppingCartItem scItem: listItems) {
             Product product = (Product) scItem.getProduct();
-            amount += (scItem.getQuantity()*product.getPrice().doubleValue());
+            amount += (scItem.getQuantity()*product.getPrice());
         }
         return amount;
     }

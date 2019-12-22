@@ -5,9 +5,9 @@
 --%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="entity.Category"%>
+<%@page import="model.Category"%>
 <%@page import="java.util.List"%>
-<%@page import="entity.Product"%>
+<%@page import="model.Product"%>
 
 <%
     session.setAttribute("view", "/category");
@@ -16,7 +16,7 @@
 
 <div class="content">
     <div class="container">
-        <div class="  col-m-on">
+        <div class="col-m-on">
             <!---->
             <div class="in-line">
                 <div class="para-all">
@@ -34,13 +34,13 @@
                             <a href="product?<%=p.getProductId()%>">
                                 <img class="img-responsive pic-in" src="imageshow/<%=p.getImage()%>" alt=" " >
                             </a>
-                            <div class=" you-onto">
+<!--                            <div class=" you-onto">
                                 <span>15<label>%</label></span>
                                 <small>off</small>
-                            </div>
+                            </div>-->
                             <div class="showInfo">
                                 <p><%=p.getName()%></p>
-                                <span>$<%=p.getPrice()%>  | <label class="cat-in"> </label> 
+                                <span><%=p.getPriceFormat()%>  | <label class="cat-in"> </label> 
                                     <a href="addToCart?<%=p.getProductId()%>">Add to Cart </a></span>
                             </div>
                             
@@ -51,12 +51,12 @@
                             <a href="product?<%=p.getProductId()%>">
                                 <img class="img-responsive pic-in" src="imageshow/<%=p.getImage()%>" alt=" " >
                             </a>
-                            <div class=" you-onto">
+<!--                            <div class=" you-onto">
                                 <span>15<label>%</label></span>
                                 <small>off</small>
-                            </div>
+                            </div>-->
                             <p><%=p.getName()%></p>
-                            <span>$<%=p.getPrice()%>  | <label class="cat-in"> </label>
+                            <span><%=p.getPriceFormat()%>  | <label class="cat-in"> </label>
                                 <a href="addToCart?<%=p.getProductId()%>">Add to Cart </a></span>
                         </div>
                     </c:if>

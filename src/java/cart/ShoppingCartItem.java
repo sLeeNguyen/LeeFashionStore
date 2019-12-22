@@ -1,6 +1,6 @@
 package cart;
 
-import entity.Product;
+import model.Product;
 
 /**
  *
@@ -8,7 +8,7 @@ import entity.Product;
  */
 public class ShoppingCartItem {
     Product product;
-    short quantity;
+    int quantity;
     
     public ShoppingCartItem(Product product) {
         this.product = product;
@@ -23,11 +23,11 @@ public class ShoppingCartItem {
         this.product = product;
     }
 
-    public short getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(short quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     
@@ -39,9 +39,9 @@ public class ShoppingCartItem {
         quantity--;
     }
     
-    public double getTotal() {
-        double amount = 0;
-        amount = this.getQuantity()*product.getPrice().doubleValue();
+    public float getTotal() {
+        float amount = 0;
+        amount = this.getQuantity()*product.getPrice();
         return amount;
     }
 }

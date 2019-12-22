@@ -31,12 +31,12 @@
                                        <img class="img-responsive pic-in" style="height: 200px;"
                                             src="${initParam.imgProductPath}${product.getImage()}" alt=" ">
                                 </a>
-                                <div class="you-in">
+<!--                                <div class="you-in">
                                     <span>15<label>%</label></span>
                                     <small>off</small>
-                                </div>  
+                                </div>  -->
                                 <p>${product.getName()}</p>
-                                <span>$${product.getPrice()}  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
+                                <!--<span>$${product.getPrice()}  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>-->
                             </div>
                         </c:forEach>
                         
@@ -97,7 +97,7 @@
                         </a>
                     <div class="hide-in">
                         <p>${category.getName()}</p>
-                        <span>$69.00  |  <a href="category?${category.categoryId}">View</a></span>
+                        <!--<span><a href="category?${category.categoryId}">View</a></span>-->
                     </div></li>
                 </c:forEach>
                 

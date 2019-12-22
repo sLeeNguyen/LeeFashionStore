@@ -4,13 +4,13 @@
     Author     : Lee Nguyen
 --%>
 
-<%@page import="entity.Productdetail"%>
-<%@page import="entity.Product"%>
+<%@page import="model.ProductDetail"%>
+<%@page import="model.Product"%>
 
 <%
-    session.setAttribute("view", "/product ");
+    session.setAttribute("view", "/product");
     Product selectedProduct = (Product) session.getAttribute("selectedProduct");
-    Productdetail selectedProductDetail = (Productdetail) session.getAttribute("selectedProductDetail");
+    ProductDetail selectedProductDetail = (ProductDetail) session.getAttribute("selectedProductDetail");
 %>
 
 <script src="js/jquery.etalage.min.js"></script>
@@ -61,8 +61,8 @@
                     <div class="span1_of_1_des">
                         <div class="desc1">
                             <h3><%=selectedProduct.getName()%> </h3>
-                            <p><%=selectedProduct.getDescriptionDetail()%></p>
-                            <h5>$<%=selectedProduct.getPrice()%> <a href="#">click for offer</a></h5>
+                            <p><%=selectedProduct.getDescription()%></p>
+                            <h5><%=selectedProduct.getPriceFormat()%> <a href="#">click for offer</a></h5>
                             <div class="available">
                                 <h4>Available Options :</h4>
                                 <ul>
@@ -118,15 +118,7 @@
                         <div class="resp-tabs-container">
                             <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>Product Description</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
                                 <div class="facts">
-                                    <p ><%=selectedProductDetail.getInformation()%></p>
-                                    <ul>
-                                        <li>Research</li>
-                                        <li>Design and Development</li>
-                                        <li>Porting and Optimization</li>
-                                        <li>System integration</li>
-                                        <li>Verification, Validation and Testing</li>
-                                        <li>Maintenance and Support</li>
-                                    </ul>         
+                                    <p ><%=selectedProductDetail.getInformation()%></p>     
                                 </div>
                             </div>
                             <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>Additional Information</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
@@ -147,15 +139,7 @@
                                         need to be sure there isn't anything embarrassing hidden in the middle of text. All the
                                         Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, 
                                         making this the first true generator on the Internet. It uses a dictionary of over 200 
-                                        Latin words, combined </p>
-                                    <ul>
-                                        <li>Research</li>
-                                        <li>Design and Development</li>
-                                        <li>Porting and Optimization</li>
-                                        <li>System integration</li>
-                                        <li>Verification, Validation and Testing</li>
-                                        <li>Maintenance and Support</li>
-                                    </ul>     
+                                        Latin words, combined </p>  
                                 </div>	
                             </div>
                         </div>

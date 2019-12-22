@@ -2,21 +2,21 @@ package controller;
 
 
 import cart.ShoppingCart;
-import entity.Category;
-import entity.Product;
-import entity.Productdetail;
+import dao.CategoryDAO;
+import dao.ProductDAO;
+import dao.ProductDetailDAO;
 import java.io.IOException;
-import java.util.List;
-import javax.ejb.EJB;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import session_bean.CategorySessionBean;
-import session_bean.ProductDetailSessionBean;
-import session_bean.ProductSessionBean;
+import model.Category;
+import model.Product;
+import model.ProductDetail;
+
 /**
  *
  * @author Lee Nguyen
@@ -25,22 +25,18 @@ import session_bean.ProductSessionBean;
 @WebServlet(name = "ControllerServlet", urlPatterns={"/ControllerServlet", 
                                                      "/category", 
                                                      "/product",
-                                                     "/manage",
                                                      "/viewCart",
                                                      "/addToCart",
                                                      "/updateCart",
-                                                     "/removeItem"})
+                                                     "/removeItem",
+                                                     "/purchase",
+                                                     "/checkout"})
 public class ControllerServlet extends HttpServlet {
     
-    @EJB
-    private CategorySessionBean categorySessionBean;
-            
-    @EJB
-    private ProductSessionBean productSessionBean;
-    
-    @EJB
-    private ProductDetailSessionBean productDetailSessionBean;
-    
+    private CategoryDAO cd = new CategoryDAO(); 
+    private ProductDAO pd = new ProductDAO();
+    private ProductDetailDAO pdd = new ProductDetailDAO();
+
     /**
      *
      * @param request
@@ -48,8 +44,6 @@ public class ControllerServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    @Override
-    @SuppressWarnings("empty-statement")
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {;
             
@@ -57,12 +51,11 @@ public class ControllerServlet extends HttpServlet {
         HttpSession session = request.getSession();
         if (userPath.equals("/category")) {
             String categoryId = request.getQueryString();
-            if (categoryId != null){
-                Category selectedCategory;
-                List<Product> categoryProducts;
-                selectedCategory = categorySessionBean.find(categoryId);
+
+            if (categoryId != null) {
+                Category selectedCategory = cd.getCategoryById(categoryId);
                 session.setAttribute("selectedCategory", selectedCategory);
-                categoryProducts = (List<Product>) selectedCategory.getProductCollection();
+                ArrayList<Product> categoryProducts = pd.getListProductsByCategoryId(categoryId);
                 if ("cid1".equals(categoryId)) {
                     session.setAttribute("categoryProducts", categoryProducts.subList(0, categoryProducts.size()-2));
                 }
@@ -76,21 +69,14 @@ public class ControllerServlet extends HttpServlet {
         }
         else if (userPath.equals("/product")) {
             Product selectedProduct;
-            Productdetail selectedProductDetail;
+            ProductDetail selectedProductDetail;
             String productId = request.getQueryString();
             if (productId != null) {
-                selectedProduct = productSessionBean.find(productId);
-                selectedProductDetail = productDetailSessionBean.find(productId);
+                selectedProduct = pd.getProductById(productId);
+                selectedProductDetail = pdd.getProductDetailById(productId);
                 session.setAttribute("selectedProduct", selectedProduct);
                 session.setAttribute("selectedProductDetail", selectedProductDetail);
             }
-        }
-        else if (userPath.equals("/manage")) {
-            Product selectedProduct;
-            List<Product> listProducts = productSessionBean.findAll();
-            session.setAttribute("listProducts", listProducts);
-            response.sendRedirect("/LeeFashionStore/admin/manage/page/products.jsp");
-            return;
         }
         else if (userPath.equals("/viewCart")) {
             String clear = request.getParameter("clear");
@@ -118,7 +104,7 @@ public class ControllerServlet extends HttpServlet {
             // get User input from request
             String productId = request.getQueryString();
             if (!productId.isEmpty()) {
-                Product product = productSessionBean.find(productId);
+                Product product = pd.getProductById(productId);
                 cart.addItem(product);
             }
            
@@ -130,7 +116,7 @@ public class ControllerServlet extends HttpServlet {
             String quatity = request.getParameter("quantity");
             ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
             
-            Product product = productSessionBean.find(productId);
+            Product product = pd.getProductById(productId);
             if (product != null) cart.update(product, quatity);
             
             String userView = (String) session.getAttribute("view");
@@ -138,7 +124,7 @@ public class ControllerServlet extends HttpServlet {
         }
         else if (userPath.equals("/removeItem")) {
             String productId = request.getParameter("productId");
-            Product product = productSessionBean.find(productId);
+            Product product = pd.getProductById(productId);
             ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
             if (product != null) {
                 cart.removeItem(product);
@@ -147,6 +133,42 @@ public class ControllerServlet extends HttpServlet {
             String userView = (String) session.getAttribute("view");
             userPath = userView;
         }
+        else if (userPath.equals("/checkout")) {
+            String user = (String) session.getAttribute("name");
+            if (user == null || user.isEmpty()) {
+                session.setAttribute("isLogined", false);
+                String userView = (String) session.getAttribute("view");
+                userPath = userView;
+            }
+        }
+//        else if (userPath.equals("/purchase")) {
+//            ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+//            if (cart != null) {
+//                String name = request.getParameter("name");
+//                String email = request.getParameter("email");
+//                String phone = request.getParameter("phone");
+//                String address = request.getParameter("address");
+//                String cityRegion = request.getParameter("cityRegion");
+//                String ccNumber = request.getParameter("creditcard");             
+//                
+//                int orderId = orderManager.placeOrder(name, email, phone, address, cityRegion, ccNumber, cart);
+//                System.out.println(orderId);
+//                if (orderId != 0) {
+//                    Map orderMap = orderManager.getOrderDetails(orderId);
+//                    
+//                    // place order details in request scope
+//                    request.setAttribute("customer", orderMap.get("customer"));
+//                    request.setAttribute("products", orderMap.get("products"));
+//                    request.setAttribute("orderRecord", orderMap.get("orderRecord"));
+//                    request.setAttribute("orderedProducts", orderMap.get("orderedProducts"));               
+//                    
+//                    userPath = "/confirmation";
+//                }
+//                else {
+//                    userPath = "/checkout";
+//                }
+//            }
+//        }  
         
         String url = userPath + ".jsp";
         try{

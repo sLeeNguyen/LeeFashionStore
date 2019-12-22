@@ -19,6 +19,10 @@
                 </c:otherwise>
             </c:choose>
         </c:set>
+                <c:if test="${isLogined != null && !isLogined}">
+                    <p style="text-align: center;color: red;">You need to sign in!</p>
+
+                </c:if>
         <c:if test="${!empty cart && cart.getNumberOfItems() != 0}">
             <c:url var="url" value="viewCart">
                 <c:param name="clear" value="true"/>
@@ -90,7 +94,7 @@
                 </ul>
 
                 <div class="clearfix"></div>
-                <a class="order" href="checkout.jsp">Checkout</a>
+                <a class="order" href="checkout">Checkout</a>
             </div>
         </c:if>
         <c:if test="${(empty cart) || (cart.getNumberOfItems() == 0)}">

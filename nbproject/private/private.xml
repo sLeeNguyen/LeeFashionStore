@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/web/confirmation.jsp</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/session_bean/CustomerSessionBean.java</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/entity/Orderedproduct.java</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/session_bean/OrderManager.java</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/session_bean/AbstractSessionBean.java</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/entity/Customer.java</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/session_bean/CustomerOrderSessionBean.java</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/cart/ShoppingCart.java</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/session_bean/OrderedProductSessionBean.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/dao/CustomerOrderDAO.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/model/CustomerOrder.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/controller/ControllerServlet.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/dao/InterfaceDAO.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/dao/OrderedProductDAO.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/model/OrderedProduct.java</file>
+            <file>file:/C:/Users/Inspiron%207559/Documents/NetBeansProjects/LeeFashionStore/src/java/dbhandle/DatabaseHandle.java</file>
         </group>
     </open-files>
 </project-private>
